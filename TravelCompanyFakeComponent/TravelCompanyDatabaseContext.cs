@@ -20,6 +20,7 @@ namespace TravelCompanyFakeComponent
         [Key]
         public string Name { get; set; }
         public virtual ICollection<Leg> Departures { get; set; }
+        public virtual ICollection<Leg> Arrivals { get; set; }
     }
 
     public class Leg
@@ -27,11 +28,11 @@ namespace TravelCompanyFakeComponent
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("From")]
-        public string CityNameFrom { get; set; }
+        //[ForeignKey("From")]
+        //public string CityNameFrom { get; set; }
         public virtual City From { get; set; }
-        [ForeignKey("To")]
-        public string CityNameTo { get; set; }
+        //[ForeignKey("To")]
+        //public string CityNameTo { get; set; }
         public virtual City To { get; set; }
         public int Length { get; set; }
         public int Price { get; set; }

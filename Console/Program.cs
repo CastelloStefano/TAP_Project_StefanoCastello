@@ -13,6 +13,7 @@ namespace Console
         {
             using (var db = new TravelCompanyDatabaseContext())
             {
+                db.Database.Connection.Close();
                 db.Database.Delete();
                 db.Database.Create();
                 
