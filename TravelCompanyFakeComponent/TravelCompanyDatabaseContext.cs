@@ -11,15 +11,25 @@ namespace TravelCompanyFakeComponent
 {
     public class TravelCompanyDatabaseContext: DbContext
     {
+        static TravelCompanyDatabaseContext()
+        {
+            Database.SetInitializer(new DropCreateDatabaseAlways<TravelCompanyDatabaseContext>());
+        }
+
         public DbSet<City> Cities { get; set; }
         public DbSet<Leg> Legs { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    //base.OnModelCreating(modelBuilder);
+
+
+        //}
     }
 
     public class City
     {
         [Key]
         public string Name { get; set; }
-        [ForeignKey("From")]
         public virtual ICollection<Leg> Departures { get; set; }
         public virtual ICollection<Leg> Arrivals { get; set; }
     }
@@ -29,11 +39,7 @@ namespace TravelCompanyFakeComponent
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("From")]
-        //public string CityNameFrom { get; set; }
         public virtual City From { get; set; }
-        //[ForeignKey("To")]
-        //public string CityNameTo { get; set; }
         public virtual City To { get; set; }
         public int Length { get; set; }
         public int Price { get; set; }
