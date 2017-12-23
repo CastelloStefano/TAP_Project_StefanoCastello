@@ -18,12 +18,12 @@ namespace TravelCompanyFakeComponent
 
         public DbSet<City> Cities { get; set; }
         public DbSet<Leg> Legs { get; set; }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    //base.OnModelCreating(modelBuilder);
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
 
-
-        //}
+        }
     }
 
     public class City
@@ -40,9 +40,11 @@ namespace TravelCompanyFakeComponent
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("FromCity")] public string From;
+        [ForeignKey("FromCity")]
+        public string From { get; set; }
         public virtual City FromCity { get; set; }
-        [ForeignKey("ToCity")] public string To;
+        [ForeignKey("ToCity")]
+        public string To { get; set; }
         public virtual City ToCity { get; set; }
         public int Length { get; set; }
         public int Price { get; set; }

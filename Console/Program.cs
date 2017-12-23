@@ -13,9 +13,9 @@ namespace Console
         {
             using (var db = new TravelCompanyDatabaseContext())
             {
-                db.Database.Connection.Close();
-                db.Database.Delete();
-                db.Database.Create();
+            //    db.Database.Connection.Close();
+            //    db.Database.Delete();
+            //    db.Database.Create();
 
                 City Genova = new City() { Name = "Genova", Arrivals = new List<Leg>(), Departures = new List<Leg>() };
                 City Sestri = new City() { Name = "Sestri", Arrivals = new List<Leg>(), Departures = new List<Leg>() };
