@@ -39,8 +39,11 @@ namespace TravelCompanyFakeComponent
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public virtual City From { get; set; }
-        public virtual City To { get; set; }
+
+        [ForeignKey("FromCity")] public string From;
+        public virtual City FromCity { get; set; }
+        [ForeignKey("ToCity")] public string To;
+        public virtual City ToCity { get; set; }
         public int Length { get; set; }
         public int Price { get; set; }
     }

@@ -27,10 +27,10 @@ namespace Console
                 Sestri.Departures.Add(SeMu);
                 Sestri.Arrivals.Add(GeSe);
                 Multedo.Arrivals.Add(SeMu);
-                GeSe.From = Genova;
-                GeSe.To = Sestri;
-                SeMu.From = Sestri;
-                SeMu.To = Multedo;
+                GeSe.From = Genova.Name;
+                GeSe.To = Sestri.Name;
+                SeMu.From = Sestri.Name;
+                SeMu.To = Multedo.Name;
                 db.Cities.Add(Genova);
                 db.Cities.Add(Sestri);
                 db.Cities.Add(Multedo);
