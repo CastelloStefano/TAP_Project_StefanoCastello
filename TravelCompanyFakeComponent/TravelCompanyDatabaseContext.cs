@@ -18,13 +18,9 @@ namespace TravelCompanyFakeComponent
 
         public DbSet<City> Cities { get; set; }
         public DbSet<Leg> Legs { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            
-
-        }
+        
     }
+    
 
     public class City
     {
